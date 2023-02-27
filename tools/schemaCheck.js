@@ -3,7 +3,10 @@ const Ajv = require("ajv")
 const ajv = new Ajv()
 const schema = require("./schema/chainSchema.json")
 const { exit } = require("process")
-const chainFiles = fs.readdirSync("../_data/chains/")
+const path = require('path')
+
+const resolve = (_path) => path.resolve(__dirname, _path)
+const chainFiles = fs.readdirSync(resolve("../_data/chains/"))
 
 // https://chainagnostic.org/CAIPs/caip-2
 const parseChainId = (chainId) =>
@@ -13,7 +16,7 @@ const parseChainId = (chainId) =>
 
 const filesWithErrors = []
 for (const chainFile of chainFiles) {
-  const fileLocation = `../_data/chains/${chainFile}`
+  const fileLocation = resolve(`../_data/chains/${chainFile}`)
   const fileData = fs.readFileSync(fileLocation, "utf8")
   const fileDataJson = JSON.parse(fileData)
   const fileName = chainFile.split(".")[0]
