@@ -1,10 +1,12 @@
 {
-  "name": "Expanse Network",
+  "name": "Expanse Mainnet",
   "chain": "EXP",
+  "icon": "expanse",
   "rpc": ["https://node.expanse.tech"],
+  "features": [{ "name": "EIP155" }, { "name": "EIP1559" }],
   "faucets": [],
   "nativeCurrency": {
-    "name": "Expanse Network Ether",
+    "name": "Expanse",
     "symbol": "EXP",
     "decimals": 18
   },
@@ -12,5 +14,17 @@
   "shortName": "exp",
   "chainId": 2,
   "networkId": 1,
-  "slip44": 40
+  "slip44": 40,
+  "explorers": [
+    {
+      "name": "expanscout",
+      "url": "https://expanscout.com",
+      "standard": "EIP3091"
+    },
+    {
+      "name": "explorer",
+      "url": "https://explorer.expanse.tech",
+      "standard": "EIP3091"
+    }
+  ]
 }
