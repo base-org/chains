@@ -33,7 +33,7 @@ The source data is in _data/chains. Each chain has its own file with the filenam
 }
 ```
 
-when an icon is used in either the network or an explorer there must be a json in _data/icons with the name used (e.g. in the above example there must be a `ethereum.json` and a `etherscan.json` in there) - the icon jsons look like this:
+when an icon is used in either the network or an explorer there must be a JSON in _data/icons with the name used (e.g. in the above example there must be a `ethereum.json` and a `etherscan.json` in there) - the icon jsons look like this:
 
 ```json
 
@@ -60,9 +60,9 @@ If the chain is an L2 or a shard of another chain you can link it to the parent 
 {
   ...
   "parent": {
-   "type" : "L2",
-   "chain": "eip155-1",
-   "bridges": [ {"url":"https://bridge.arbitrum.io"} ]
+    "type": "L2",
+    "chain": "eip155-1",
+    "bridges": [{"url":"https://bridge.arbitrum.io"}]
   }
 }
 ```
@@ -82,7 +82,7 @@ There are also aggregated json files with all chains automatically assembled:
 
  * the shortName and name MUST be unique - see e.g. EIP-3770 on why
  * if referencing a parent chain - the chain MUST exist in the repo
- * if using a IPFS CID for the icon - the CID MUST be retrievable via `ipfs get` - not only through some gateway (means please do not use pinata for now)
+ * if using an IPFS CID for the icon - the CID MUST be retrievable via `ipfs get` - not only through some gateway (means please do not use pinata for now)
  * for more constraints you can look into the CI
 
 ## Collision management
@@ -90,7 +90,7 @@ There are also aggregated json files with all chains automatically assembled:
  We cannot allow more than one chain with the same chainID - this would open the door to replay attacks.
  The first pull request gets the chainID assigned. When creating a chain we can expect that you read EIP155 which states this repo.
  All pull requests trying to replace a chainID because they think their chain is better than the other will be closed.
- The only way to get a chain reassigned is when the old chain gets deprecated. This can e.g. be used for testnets that are short-lived. But then you will get the redFlag "reusedChaiID" that should be displayed in clients to warn them about the dangers here.
+ The only way to get a chain reassigned is when the old chain gets deprecated. This can e.g. be used for testnets that are short-lived. But then you will get the redFlag "reusedChainID" that should be displayed in clients to warn them about the dangers here.
 
 ## PR verification
 
